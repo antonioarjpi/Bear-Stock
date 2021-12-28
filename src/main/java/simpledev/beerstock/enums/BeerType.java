@@ -1,4 +1,4 @@
-package simpledev.beerstock.domain.enums;
+package simpledev.beerstock.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

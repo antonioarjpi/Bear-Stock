@@ -1,20 +1,25 @@
-package simpledev.beerstock.api.controller;
+package simpledev.beerstock.controller;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import simpledev.beerstock.api.dto.BeerDTO;
-import simpledev.beerstock.api.dto.QuantityDTO;
-import simpledev.beerstock.domain.exception.BeerAlreadyRegisteredException;
-import simpledev.beerstock.domain.exception.BeerNotFoundException;
-import simpledev.beerstock.domain.exception.BeerStockExceededException;
-import simpledev.beerstock.domain.service.BeerService;
+import simpledev.beerstock.dto.BeerDTO;
+import simpledev.beerstock.dto.QuantityDTO;
+import simpledev.beerstock.exception.BeerAlreadyRegisteredException;
+import simpledev.beerstock.exception.BeerNotFoundException;
+import simpledev.beerstock.exception.BeerStockExceededException;
+import simpledev.beerstock.service.BeerService;
 
 import javax.validation.Valid;
 import java.util.List;
 
-public class BeerController {
+@RestController
+@RequestMapping("/api/v1/beers")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
+public class BeerController implements BeerControllerDocs {
 
-    private BeerService beerService;
+    private final BeerService beerService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -42,5 +47,4 @@ public class BeerController {
     public BeerDTO increment(@PathVariable Long id, @RequestBody @Valid QuantityDTO quantityDTO) throws BeerNotFoundException, BeerStockExceededException {
         return beerService.increment(id, quantityDTO.getQuantity());
     }
-
 }

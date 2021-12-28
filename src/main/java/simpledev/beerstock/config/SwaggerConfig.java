@@ -1,4 +1,4 @@
-package simpledev.beerstock.api.config;
+package simpledev.beerstock.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +15,12 @@ import static springfox.documentation.builders.RequestHandlerSelectors.basePacka
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-    private static final String BASE_PACKAGE = "one.digitalinnovation.beerstock.controller";
+    private static final String BASE_PACKAGE = "simpledev.beerstock.api.controller";
     private static final String API_TITLE = "Beer Stock API";
     private static final String API_DESCRIPTION = "REST API for beer stock management";
-    private static final String CONTACT_NAME = "Rodrigo Peleias";
-    private static final String CONTACT_GITHUB = "https://gtihub.com/rpeleias";
-    private static final String CONTACT_EMAIL = "rodrigo.peleis@gmail.com";
+    private static final String CONTACT_NAME = "Antônio Araújo";
+    private static final String CONTACT_GITHUB = "https://gtihub.com/antonioarjpi";
+    private static final String CONTACT_EMAIL = "antonioarjpi@gmail.com";
 
     @Bean
     public Docket api() {

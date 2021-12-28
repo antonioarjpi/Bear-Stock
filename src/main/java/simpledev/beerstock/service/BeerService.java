@@ -1,15 +1,15 @@
-package simpledev.beerstock.domain.service;
+package simpledev.beerstock.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import simpledev.beerstock.api.dto.BeerDTO;
-import simpledev.beerstock.domain.exception.BeerAlreadyRegisteredException;
-import simpledev.beerstock.domain.exception.BeerNotFoundException;
-import simpledev.beerstock.domain.exception.BeerStockExceededException;
-import simpledev.beerstock.domain.mapper.BeerMapper;
-import simpledev.beerstock.domain.model.Beer;
-import simpledev.beerstock.domain.repository.BeerRepository;
+import simpledev.beerstock.dto.BeerDTO;
+import simpledev.beerstock.exception.BeerAlreadyRegisteredException;
+import simpledev.beerstock.exception.BeerNotFoundException;
+import simpledev.beerstock.exception.BeerStockExceededException;
+import simpledev.beerstock.mapper.BeerMapper;
+import simpledev.beerstock.model.Beer;
+import simpledev.beerstock.repository.BeerRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class BeerService {
 
-    private BeerRepository beerRepository;
-    private BeerMapper beerMapper = BeerMapper.INSTANCE;
+    private final BeerRepository beerRepository;
+    private final BeerMapper beerMapper = BeerMapper.INSTANCE;
 
-    public BeerDTO createBeer(BeerDTO beerDTO) throws BeerAlreadyRegisteredException{
+    public BeerDTO createBeer(BeerDTO beerDTO) throws BeerAlreadyRegisteredException {
         verifyIfIsAlreadyRegistered(beerDTO.getName());
         Beer beer = beerMapper.toModel(beerDTO);
         Beer savedBeer = beerRepository.save(beer);
@@ -35,14 +35,14 @@ public class BeerService {
         return beerMapper.toDTO(foundBeer);
     }
 
-    public List<BeerDTO> listAll(){
+    public List<BeerDTO> listAll() {
         return beerRepository.findAll()
                 .stream()
                 .map(beerMapper::toDTO)
                 .collect(Collectors.toList());
     }
 
-    public void deleteById(Long id) throws BeerNotFoundException{
+    public void deleteById(Long id) throws BeerNotFoundException {
         verifyIfExists(id);
         beerRepository.deleteById(id);
     }
@@ -70,3 +70,4 @@ public class BeerService {
         throw new BeerStockExceededException(id, quantityToIncrement);
     }
 }
+

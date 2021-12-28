@@ -1,15 +1,16 @@
-package simpledev.beerstock.api.controller;
+package simpledev.beerstock.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.PathVariable;
-import simpledev.beerstock.api.dto.BeerDTO;
-import simpledev.beerstock.domain.exception.BeerAlreadyRegisteredException;
-import simpledev.beerstock.domain.exception.BeerNotFoundException;
+import simpledev.beerstock.dto.BeerDTO;
+import simpledev.beerstock.exception.BeerAlreadyRegisteredException;
+import simpledev.beerstock.exception.BeerNotFoundException;
 
 import java.util.List;
+
 
 @Api("Manages beer stock")
 public interface BeerControllerDocs {

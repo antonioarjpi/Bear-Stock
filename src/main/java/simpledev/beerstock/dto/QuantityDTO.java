@@ -1,4 +1,4 @@
-package simpledev.beerstock.api.dto;
+package simpledev.beerstock.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,5 +17,4 @@ public class QuantityDTO {
     @NotNull
     @Max(100)
     private Integer quantity;
-
 }

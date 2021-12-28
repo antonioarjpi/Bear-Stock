@@ -1,10 +1,10 @@
-package simpledev.beerstock.api.dto;
+package simpledev.beerstock.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import simpledev.beerstock.domain.enums.BeerType;
+import simpledev.beerstock.enums.BeerType;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;

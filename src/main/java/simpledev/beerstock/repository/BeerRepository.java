@@ -1,7 +1,7 @@
-package simpledev.beerstock.domain.repository;
+package simpledev.beerstock.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import simpledev.beerstock.domain.model.Beer;
+import simpledev.beerstock.model.Beer;
 
 import java.util.Optional;
 

@@ -1,14 +1,14 @@
-package simpledev.beerstock.domain.model;
+package simpledev.beerstock.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import simpledev.beerstock.domain.enums.BeerType;
+import simpledev.beerstock.enums.BeerType;
 
 import javax.persistence.*;
 
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Beer {
@@ -21,7 +21,7 @@ public class Beer {
     private String name;
 
     @Column(nullable = false)
-    private String band;
+    private String brand;
 
     @Column(nullable = false)
     private int max;
@@ -32,5 +32,6 @@ public class Beer {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private BeerType type;
+
 
 }

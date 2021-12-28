@@ -1,9 +1,9 @@
-package simpledev.beerstock.domain.mapper;
+package simpledev.beerstock.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import simpledev.beerstock.api.dto.BeerDTO;
-import simpledev.beerstock.domain.model.Beer;
+import simpledev.beerstock.dto.BeerDTO;
+import simpledev.beerstock.model.Beer;
 
 @Mapper
 public interface BeerMapper {
