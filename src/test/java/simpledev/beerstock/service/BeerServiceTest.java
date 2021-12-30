@@ -1,5 +1,7 @@
 package simpledev.beerstock.service;
 
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +15,8 @@ import simpledev.beerstock.exception.BeerAlreadyRegisteredException;
 import simpledev.beerstock.mapper.BeerMapper;
 import simpledev.beerstock.model.Beer;
 import simpledev.beerstock.repository.BeerRepository;
+
+import static org.hamcrest.MatcherAssert.*;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -41,8 +45,10 @@ public class BeerServiceTest {
 
         BeerDTO createdBeerDTO = beerService.createBeer(beerDTO);
 
-        assertEquals(beerDTO.getId(), createdBeerDTO.getId());
-        assertEquals(beerDTO.getName(), createdBeerDTO.getName());
+        assertThat(createdBeerDTO.getId(), Matchers.is(Matchers.equalTo(beerDTO.getId())));
+        assertThat(createdBeerDTO.getName(), Matchers.is(Matchers.equalTo(beerDTO.getName())));
+        assertThat(createdBeerDTO.getQuantity(), Matchers.is(Matchers.equalTo(beerDTO.getQuantity())));
+
 
     }
 }
